@@ -5,13 +5,13 @@
 // NOTE: This is a single-file page. Drop into a Next.js route and it should render.
 "use client" 
 import { useMemo, useState } from "react" 
-import type { ComponentType, SVGProps } from "react" 
 import { Card, CardContent } from "@/components/ui/card" 
 import { Button } from "@/components/ui/button" 
 import { Input } from "@/components/ui/input" 
 import { Slider } from "@/components/ui/slider" 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs" 
-import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react" 
+import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react"
+import Image from "next/image" 
 
 // ---------------------------
 // Theme helpers (tailwind classes)
@@ -124,6 +124,48 @@ export function computePercentageSplit(
 
 
 // ---------------------------
+// Navigation Header
+// ---------------------------
+
+function Header() {
+  return (
+    <header className={`${darkBg} sticky top-0 z-50 border-b border-gray-800`}>
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <Image 
+            src="/logo.png" 
+            alt="One Card Logo" 
+            width={150} 
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
+        </div>
+        <div className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
+          <a href="#how" className="text-gray-300 hover:text-white transition-colors">How it works</a>
+          <a href="#security" className="text-gray-300 hover:text-white transition-colors">Security</a>
+          <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
+          <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
+            Join waitlist
+          </Button>
+        </div>
+        <div className="md:hidden">
+          <Image 
+            src="/small-logo.png" 
+            alt="One Card" 
+            width={32} 
+            height={32}
+            className="h-8 w-8"
+            priority
+          />
+        </div>
+      </div>
+    </header>
+  )
+}
+
+// ---------------------------
 // Landing Page
 // ---------------------------
 
@@ -149,7 +191,7 @@ function Section({ id, title, subtitle, children }: { id: string ; title: string
   ) 
 }
 
-function FeatureCard({ icon: Icon, title, desc }: { icon: any ; title: string ; desc: string }) {
+function FeatureCard({ icon: Icon, title, desc }: { icon: React.ComponentType<{ className?: string }> ; title: string ; desc: string }) {
   return (
     <div className={`${darkPanel} rounded-2xl p-5`}>
       <div className="flex items-center gap-3">
@@ -658,7 +700,7 @@ function Simulator() {
                 </div>
                 <Button onClick={saveCard} className={`${mintSolid} text-gray-900 w-full`}>Save Card</Button>
                 <div className="text-xs text-gray-500">
-                  Production note: use Stripe Elements / Financial Connections or Plaid to tokenize  don't collect raw PAN data.
+                  Production note: use Stripe Elements / Financial Connections or Plaid to tokenize &mdash; don&apos;t collect raw PAN data.
                 </div>
               </CardContent>
             </Card>
@@ -688,6 +730,7 @@ function Footer() {
 export default function OneCardLanding() {
   return (
     <main className={`${darkBg} ${strongText} overflow-x-clip`}>
+      <Header />
       <Hero />
       <Features />
       <HowItWorks />

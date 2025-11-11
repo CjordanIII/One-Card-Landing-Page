@@ -147,9 +147,13 @@ function Header() {
           <a href="#how" className="text-gray-300 hover:text-white transition-colors">How it works</a>
           <a href="#security" className="text-gray-300 hover:text-white transition-colors">Security</a>
           <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
-          <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
-            Join wait list
-          </Button>
+     
+     <a href="/subscribe">
+  <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
+    Join wait list
+  </Button>
+</a>
+
         </div>
         <div className="md:hidden ">
           <Image 
@@ -157,7 +161,7 @@ function Header() {
             alt="One Card" 
             width={500} 
             height={500}
-            className="h-12 w-12 scale-[3]"
+            className="h-12 w-12 scale-[]"
             priority
           />
         </div>
@@ -218,7 +222,13 @@ function Hero() {
             Link your existing cards and set how to fund every purchase — sequentially or by percentage. The merchant sees one card  you control the split.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium w-full sm:w-auto justify-center`}>Join the waitlist <ArrowRight className="w-4 h-4 ml-2"/></Button>
+                <a href="/subscribe">
+  <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
+    Join wait list
+      <ArrowRight className="w-4 h-4 ml-2"/>
+  </Button>
+
+</a>
             <a href="#demo" className="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-gray-700 text-gray-200 hover:bg-gray-900 w-full sm:w-auto text-center">
               See demo
             </a>

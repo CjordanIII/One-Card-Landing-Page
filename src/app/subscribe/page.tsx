@@ -17,7 +17,7 @@ import {
 
 // Linktree-style links (customize these)
 const SUPPORT_LINKS: { label: string; href: string }[] = [
-  { label: "Kick Starter", href: "https://onecard.app" },
+  { label: "Home Page", href: "/subscribe" },
   { label: "Teespring Store", href: "https://example.com/teespring" },
   { label: "Donate (Cash App)", href: "https://cash.app/pools/POOL_06f64e4d-859c-42b0-a97a-c29411a74689" },
   { label: "Donate (PayPal)", href: "https://www.paypal.biz/clarencejordaniii" },

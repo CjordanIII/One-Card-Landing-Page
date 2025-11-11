@@ -70,7 +70,7 @@ export default function SubscribeLinktree() {
       }
       if (website) {
         // honeypot tripped — pretend success
-        setModalTitle("You're in! ");
+        setModalTitle("You're in! 🎉");
         setModalDesc("Thanks for subscribing to One Card.");
         setOpen(true);
         setEmail("");

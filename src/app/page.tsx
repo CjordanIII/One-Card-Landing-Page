@@ -5,13 +5,13 @@
 // NOTE: This is a single-file page. Drop into a Next.js route and it should render.
 "use client" 
 import { useMemo, useState } from "react" 
-import type { ComponentType, SVGProps } from "react" 
 import { Card, CardContent } from "@/components/ui/card" 
 import { Button } from "@/components/ui/button" 
 import { Input } from "@/components/ui/input" 
 import { Slider } from "@/components/ui/slider" 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs" 
-import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react" 
+import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react"
+import Image from "next/image" 
 
 // ---------------------------
 // Theme helpers (tailwind classes)
@@ -124,6 +124,53 @@ export function computePercentageSplit(
 
 
 // ---------------------------
+// Navigation Header
+// ---------------------------
+
+function Header() {
+  return (
+    <header className={`${darkBg} sticky top-0 z-50 border-b border-gray-800`}>
+      <div className="max-w-6xl mx-auto px-4 py-4 md:py-5 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <Image 
+            src="/logo.png" 
+            alt="One Card Logo" 
+            width={500} 
+            height={500}
+         
+            className="h-12 w-12 md:h-16 md:w-16 scale-[5] md:scale-[3] object-contain sm:scale-[2] "
+            priority
+          />
+        </div>
+        <div className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
+          <a href="#how" className="text-gray-300 hover:text-white transition-colors">How it works</a>
+          <a href="#security" className="text-gray-300 hover:text-white transition-colors">Security</a>
+          <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
+     
+     <a href="/subscribe">
+  <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
+    Join wait list
+  </Button>
+</a>
+
+        </div>
+        <div className="md:hidden ">
+          <Image 
+            src="/small-logo.png" 
+            alt="One Card" 
+            width={500} 
+            height={500}
+            className="h-12 w-12 scale-[]"
+            priority
+          />
+        </div>
+      </div>
+    </header>
+  )
+}
+
+// ---------------------------
 // Landing Page
 // ---------------------------
 
@@ -149,7 +196,7 @@ function Section({ id, title, subtitle, children }: { id: string ; title: string
   ) 
 }
 
-function FeatureCard({ icon: Icon, title, desc }: { icon: any ; title: string ; desc: string }) {
+function FeatureCard({ icon: Icon, title, desc }: { icon: React.ComponentType<{ className?: string }> ; title: string ; desc: string }) {
   return (
     <div className={`${darkPanel} rounded-2xl p-5`}>
       <div className="flex items-center gap-3">
@@ -175,7 +222,13 @@ function Hero() {
             Link your existing cards and set how to fund every purchase — sequentially or by percentage. The merchant sees one card  you control the split.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
-            <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium w-full sm:w-auto justify-center`}>Join the waitlist <ArrowRight className="w-4 h-4 ml-2"/></Button>
+                <a href="/subscribe">
+  <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
+    Join wait list
+      <ArrowRight className="w-4 h-4 ml-2"/>
+  </Button>
+
+</a>
             <a href="#demo" className="inline-flex items-center justify-center rounded-md px-4 py-2 ring-1 ring-gray-700 text-gray-200 hover:bg-gray-900 w-full sm:w-auto text-center">
               See demo
             </a>
@@ -658,7 +711,7 @@ function Simulator() {
                 </div>
                 <Button onClick={saveCard} className={`${mintSolid} text-gray-900 w-full`}>Save Card</Button>
                 <div className="text-xs text-gray-500">
-                  Production note: use Stripe Elements / Financial Connections or Plaid to tokenize  don't collect raw PAN data.
+                  Production note: use Stripe Elements / Financial Connections or Plaid to tokenize &mdash; don&apos;t collect raw PAN data.
                 </div>
               </CardContent>
             </Card>
@@ -688,6 +741,7 @@ function Footer() {
 export default function OneCardLanding() {
   return (
     <main className={`${darkBg} ${strongText} overflow-x-clip`}>
+      <Header />
       <Hero />
       <Features />
       <HowItWorks />

@@ -147,7 +147,7 @@ function Header() {
           <a href="#security" className="text-gray-300 hover:text-white transition-colors">Security</a>
           <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
           <Button className={`${mintSolid} text-gray-900 hover:opacity-90 font-medium`}>
-            Join waitlist
+            Join wait list
           </Button>
         </div>
         <div className="md:hidden">

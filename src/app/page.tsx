@@ -266,7 +266,7 @@ function Hero() {
       <div className="md:hidden fixed bottom-4 inset-x-4">
         <div className="flex gap-2">
           <a href="#demo" className="flex-1 inline-flex items-center justify-center rounded-lg bg-gray-900 text-gray-200 py-3 ring-1 ring-gray-800">Demo</a>
-          <Button className={`flex-1 ${mintSolid} text-gray-900 font-medium py-3`}>Join waitlist</Button>
+          <Button className={`flex-1 ${mintSolid} text-gray-900 font-medium py-3`}><a href="/subscribe">Join wait list</a></Button>
         </div>
       </div>
     </section>

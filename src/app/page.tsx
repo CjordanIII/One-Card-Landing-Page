@@ -137,7 +137,8 @@ function Header() {
             alt="One Card Logo" 
             width={500} 
             height={500}
-            className="h-12 w-12 md:h-16 md:w-16"
+         
+            className="h-12 w-12 md:h-16 md:w-16 scale-[5] md:scale-[3] object-contain sm:scale-[2] "
             priority
           />
         </div>
@@ -150,13 +151,13 @@ function Header() {
             Join wait list
           </Button>
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden ">
           <Image 
             src="/small-logo.png" 
             alt="One Card" 
             width={500} 
             height={500}
-            className="h-12 w-12"
+            className="h-12 w-12 scale-[3]"
             priority
           />
         </div>

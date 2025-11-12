@@ -12,6 +12,7 @@ import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs" 
 import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react"
 import Image from "next/image" 
+import CTAmodal from "@/components/ui/popup/model"
 
 // ---------------------------
 // Theme helpers (tailwind classes)
@@ -742,6 +743,7 @@ export default function OneCardLanding() {
       <SecurityNote />
       <Simulator />
       <Footer />
+      <CTAmodal />
     </main>
   )
 }

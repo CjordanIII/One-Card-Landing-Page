@@ -12,7 +12,22 @@ import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs" 
 import { Check, CreditCard, Trash, Shield, Zap, ChartPie, ArrowRight } from "lucide-react"
 import Image from "next/image" 
+import CTAmodal from "@/components/ui/popup/model"
+import * as Sentry from "@sentry/nextjs";
 
+Sentry.init({
+  dsn: process.env.SENTRY_DSN || "",
+    integrations: [
+    // send console.log, console.warn, and console.error calls as logs to Sentry
+    Sentry.consoleLoggingIntegration({ levels: ["log", "warn", "error"] }),
+  ],
+    // Enable logs to be sent to Sentry
+  enableLogs: true,
+});
+
+// Use metrics in both server and client code
+Sentry.metrics.count('user_action', 1);
+Sentry.metrics.distribution('api_response_time', 150);
 // ---------------------------
 // Theme helpers (tailwind classes)
 // ---------------------------
@@ -262,13 +277,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* Sticky CTA on mobile */}
-      <div className="md:hidden fixed bottom-4 inset-x-4">
-        <div className="flex gap-2">
-          <a href="#demo" className="flex-1 inline-flex items-center justify-center rounded-lg bg-gray-900 text-gray-200 py-3 ring-1 ring-gray-800">Demo</a>
-          <Button className={`flex-1 ${mintSolid} text-gray-900 font-medium py-3`}><a href="/subscribe">Join wait list</a></Button>
-        </div>
-      </div>
+ 
     </section>
   ) 
 }
@@ -748,6 +757,7 @@ export default function OneCardLanding() {
       <SecurityNote />
       <Simulator />
       <Footer />
+      <CTAmodal />
     </main>
   )
 }

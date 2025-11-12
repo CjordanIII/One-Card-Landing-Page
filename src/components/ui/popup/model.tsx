@@ -32,13 +32,7 @@ export default function CTAmodal() {
           >
             Subscribe Now <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
-          <Button
-            variant="outline"
-            onClick={() => window.location.href = "/links"}
-            className="flex-1 ring-1 ring-gray-700 text-[#2EE6A6] hover:bg-gray-900"
-          >
-            Explore Links
-          </Button>
+
         </div>
 
         <button

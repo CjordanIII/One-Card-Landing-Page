@@ -1125,6 +1125,9 @@ function Footer() {
           <a className="text-gray-300 hover:text-white" href="#demo">
             Demo
           </a>
+          <a className="text-gray-300 hover:text-white" href="/terms">
+            Terms
+          </a>
         </div>
       </div>
     </footer>
